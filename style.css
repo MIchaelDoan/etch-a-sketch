@@ -1,0 +1,28 @@
+header{
+    display:flex;
+    flex-direction: column;
+}
+body{
+    background-color: rgb(190, 241, 113);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding: 100px;
+}
+#container{
+    box-shadow: rgba(0, 0, 0, 0.24) 10px 15px 9px;
+}
+
+.gridCell{
+    height: 30px;
+    width: 30px;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: white;
+    display:flex;
+    flex-direction: column;
+
+}
+.row{
+    display:flex;
+
+}
