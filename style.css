@@ -1,28 +1,45 @@
-header{
-    display:flex;
-    flex-direction: column;
+html{
+    zoom:75%;
+}
+#header{
+    font-size: 100px;
 }
 body{
     background-color: rgb(190, 241, 113);
     display:flex;
     justify-content:center;
     align-items:center;
-    padding: 100px;
+    flex-direction:column;
+   
+    
 }
 #container{
     box-shadow: rgba(0, 0, 0, 0.24) 10px 15px 9px;
+    display:flex;
+    flex-direction: column;
+    min-width:960px;
+    min-height:960px;
+    flex:1;
+    
 }
 
 .gridCell{
-    height: 30px;
-    width: 30px;
-    border: 1px solid rgb(0, 0, 0);
     background-color: white;
     display:flex;
     flex-direction: column;
+    flex:1;
+    
 
 }
 .row{
     display:flex;
+    flex: 1;
 
+}
+.clicked{
+    background-color:black;
+}
+button{
+    height:50px;
+    width:100px;
 }
