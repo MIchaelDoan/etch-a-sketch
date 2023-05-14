@@ -4,9 +4,14 @@ function getSize() {
     size = prompt();
 }
 const container = document.querySelector('#container');
+
+
 createGrid();
 
 function createGrid() {
+    while(container.firstChild){
+        container.removeChild(container.firstChild);
+    }
     for (let i = 0; i < size; i++) {
         const row = document.createElement('div');
         row.classList.add('row');
@@ -15,41 +20,58 @@ function createGrid() {
             const gridCell = document.createElement('div');
             gridCell.setAttribute('id', i + "+" + j);
             gridCell.classList.add('gridCell');
+            gridCell.addEventListener('mouseover', () => {
+                gridCell.classList.add('clicked');
+            });
             row.appendChild(gridCell);
         }
     }
+
 }
 
-function newGrid(){
-    console.log(container.id);
-    container.removeChild(row);
 
-    /*
-    for (let i = 0; i < size; i++) {
-        const row = document.createElement('div');
-        row.classList.add('row');
-        container.appendChild(row);
-        for (let j = 0; j < size; j++) {
-            const gridCell = document.createElement('div');
-            gridCell.setAttribute('id', i + "+" + j);
-            gridCell.classList.add('gridCell');
-            row.appendChild(gridCell);
-        }
-    }*/
-}
-
-const gridCells = document.querySelectorAll('div > .gridCell');
 function clearGrid(){
+    const gridCells = document.querySelectorAll('div > .gridCell');
     for (const cell of gridCells) {
         cell.classList.remove('clicked');
     }
 }
-
-for (const cell of gridCells) {
-    cell.addEventListener('mouseover', () => {
-        cell.classList.add('clicked');
-    });
+function addListener(){
+    for (const cell of gridCells) {
+        cell.addEventListener('mouseover', () => {
+            cell.classList.add('clicked');
+        });
+    }
 }
+
+function newGrid(){
+    getSize();
+    createGrid(size);
+}
+
+/*function newGrid(){
+    console.log(container.id);
+    while(container.firstChild){
+        container.removeChild(container.firstChild);
+    }
+    getSize();
+    
+    for (let i = 0; i < size; i++) {
+        const row = document.createElement('div');
+        row.classList.add('row');
+        container.appendChild(row);
+        for (let j = 0; j < size; j++) {
+            const gridCell = document.createElement('div');
+            gridCell.setAttribute('id', i + "+" + j);
+            gridCell.classList.add('gridCell');
+            gridCell.addEventListener('mouseover', () => {
+                gridCell.classList.add('clicked');
+            });
+            row.appendChild(gridCell);
+        }
+    }
+
+}*/
 
 
 
